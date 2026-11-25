@@ -1,0 +1,7 @@
+# Nix build output links in demo directories
+/*/result
+/*/result-*
+
+# Python interpreter caches
+__pycache__/
+*.py[cod]

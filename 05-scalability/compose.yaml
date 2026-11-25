@@ -1,0 +1,16 @@
+name: fp-scalability
+services:
+  web:
+    build: .
+    image: fp-scalability:v1
+    cpus: 0.5
+    mem_limit: 128m
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000', timeout=2).close()"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+    ports:
+      - target: 8000
+        host_ip: 127.0.0.1
+        protocol: tcp
